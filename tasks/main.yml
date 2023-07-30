@@ -1,0 +1,46 @@
+---
+- name: 'Check that required string variables are defined'
+  ansible.builtin.assert:
+    that: '{{ required_vars }} is defined and {{ required_vars }}'
+    fail_msg: '{{ required_vars }} needs to be set for the role to work'
+    success_msg: 'Required variables {{ required_vars }} is defined'
+  loop:
+    - domain_controller_dns_domain_name
+    - domain_controller_safe_mode_password
+  loop_control:
+    loop_var: required_vars
+
+- name: 'Create new domain in a new forest'
+  win_domain:
+    dns_domain_name: '{{ domain_controller_dns_domain_name }}'
+    domain_netbios_name: '{{ domain_controller_domain_netbios_name }}'
+    safe_mode_password: '{{ domain_controller_safe_mode_password }}'
+    domain_mode: '{{ domain_controller_domain_mode }}'
+    forest_mode: '{{ domain_controller_forest_mode }}'
+    create_dns_delegation: '{{ domain_controller_dns_delegation }}'
+    install_dns: '{{ domain_controller_install_dns }}'
+    database_path: '{{ domain_controller_database_path }}'
+    log_path: '{{ domain_controller_log_path }}'
+    sysvol_path: '{{ domain_controller_sysvol_path }}'
+  register: domain_result
+
+- name: 'Reboot'
+  when: domain_result.reboot_required
+  block:
+    - name: 'Reboot Domain Controller'
+      win_reboot:
+
+    - name: 'Wait for connection'
+      wait_for_connection:
+# - name: 'Ensure a server is a domain controller'
+#   win_domain_controller:
+#     dns_domain_name: '{{ domain_controller_dns_domain_name }}'
+#     safe_mode_password: '{{ domain_controller_safe_mode_password }}'
+#     domain_admin_user: '{{ domain_controller_admin_username }}'
+#     domain_admin_password: '{{ domain_controller_admin_password }}'
+#     database_path: '{{ domain_controller_database_path }}'
+#     sysvol_path: '{{ domain_controller_sysvol_path }}'
+#     read_only: '{{ domain_controller_read_only }}'
+#     site_name: '{{ domain_controller_site_name }}'
+#     state: domain_controller
+#   register: domain_controller_result

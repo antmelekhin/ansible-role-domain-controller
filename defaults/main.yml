@@ -1,0 +1,11 @@
+---
+domain_controller_dns_domain_name: ''
+domain_controller_domain_netbios_name: ''
+domain_controller_safe_mode_password: ''
+domain_controller_domain_mode: 'WinThreshold'
+domain_controller_forest_mode: 'WinThreshold'
+domain_controller_dns_delegation: false
+domain_controller_install_dns: true
+domain_controller_database_path: 'C:\Windows\NTDS'
+domain_controller_log_path: 'C:\Windows\NTDS'
+domain_controller_sysvol_path: 'C:\Windows\SYSVOL'

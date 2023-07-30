@@ -1,0 +1,7 @@
+---
+- name: 'Converge'
+  hosts: all
+  roles:
+    - role: antmelekhin.domain_controller
+      domain_controller_dns_domain_name: 'molecule.local'
+      domain_controller_safe_mode_password: 'P@ssw0rd!'
