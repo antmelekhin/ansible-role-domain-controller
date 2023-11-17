@@ -1,7 +1,6 @@
 galaxy_info:
-  author: Melekhin Anton
+  author: antmelekhin
   role_name: domain_controller
-  namespace: antmelekhin
   description: An Ansible role for setup Active Directory domain controllers.
 
   license: MIT
