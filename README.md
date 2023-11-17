@@ -6,7 +6,7 @@ An Ansible role for setup Active Directory domain controllers.
 Requirements
 ------------
 
-- Supported version of Ansible: 2.9 and highter.
+- Supported version of Ansible: 2.12 and highter.
 - `pywinrm` is a python library for connection Ansible to Windows hosts via [WinRM](https://docs.ansible.com/ansible/latest/user_guide/windows_winrm.html).
 - Supported platforms:
   - Windows
