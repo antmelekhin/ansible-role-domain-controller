@@ -4,7 +4,7 @@
   gather_facts: false
   tasks:
     - name: 'Ensure Administrator is enabled'
-      win_user:
+      ansible.windows.win_user:
         name: 'Administrator'
         password: 'Asdf!234'
         state: present
