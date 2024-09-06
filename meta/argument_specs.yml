@@ -1,0 +1,60 @@
+---
+argument_specs:
+  main:
+    short_description: 'Domain Controller'
+    description:
+      - 'An Ansible role for setup Active Directory domain controllers.'
+    author:
+      - 'Melekhin Anton'
+    options:
+      domain_controller_dns_domain_name:
+        type: 'str'
+        description: 'The DNS name of the domain which should exist and be reachable or reside on the target Windows host.'
+      domain_controller_domain_netbios_name:
+        type: 'str'
+        description: 'The NetBIOS name for the root domain in the new forest.'
+      domain_controller_safe_mode_password:
+        type: 'str'
+        description: 'Safe mode password for the domain controller.'
+      domain_controller_domain_mode:
+        type: 'str'
+        description: 'Specifies the domain functional level of the first domain in the creation of a new forest.'
+        choices:
+          - 'Win2003'
+          - 'Win2008'
+          - 'Win2008R2'
+          - 'Win2012'
+          - 'Win2012R2'
+          - 'WinThreshold'
+        default: 'WinThreshold'
+      domain_controller_forest_mode:
+        type: 'path'
+        description: 'Specifies the forest functional level for the new forest.'
+        choices:
+          - 'Win2003'
+          - 'Win2008'
+          - 'Win2008R2'
+          - 'Win2012'
+          - 'Win2012R2'
+          - 'WinThreshold'
+        default: 'WinThreshold'
+      domain_controller_dns_delegation:
+        type: 'bool'
+        description: 'Whether to create a DNS delegation that references the new DNS server that you install along with the domain controller.'
+        default: false
+      domain_controller_install_dns:
+        type: 'bool'
+        description: 'The port number that Windows Exporter listens on.'
+        default: true
+      domain_controller_database_path:
+        type: 'path'
+        description: 'The path to a directory on a fixed disk of the Windows host where the domain database will be created.'
+        default: 'C:\Windows\NTDS'
+      domain_controller_log_path:
+        type: 'path'
+        description: 'Specifies the fully qualified, non-UNC path to a directory on a fixed disk of the local computer where the log file for this operation is written.'
+        default: 'C:\Windows\NTDS'
+      domain_controller_sysvol_path:
+        type: 'path'
+        description: 'The path to a directory on a fixed disk of the Windows host where the Sysvol file will be created'
+        default: 'C:\Windows\SYSVOL'
