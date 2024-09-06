@@ -7,6 +7,6 @@
       ansible.windows.win_user:
         name: 'Administrator'
         password: 'Asdf!234'
-        state: present
+        state: 'present'
         groups:
-          - Administrators
+          - 'Administrators'
