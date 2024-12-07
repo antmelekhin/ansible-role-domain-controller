@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.1](https://github.com/antmelekhin/ansible-role-domain-controller/compare/v1.1.0...v1.1.1) (2024-12-07)
+
+
+### Documentation
+
+* **README:** updated dependencies ([e187459](https://github.com/antmelekhin/ansible-role-domain-controller/commit/e187459fb7cf324cab7054fce63f4617e828fe7e))
+
 ## [1.1.0](https://github.com/antmelekhin/ansible-role-domain-controller/compare/v1.0.1...v1.1.0) (2024-09-06)
 
 
