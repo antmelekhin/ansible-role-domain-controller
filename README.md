@@ -22,7 +22,13 @@ Please refer to the [meta/argument_specs.yml](https://github.com/antmelekhin/ans
 Dependencies
 ------------
 
-None.
+When using Ansible core, you will also need to install the following Ansible collections:
+
+```yaml
+---
+collections:
+  - name: community.windows
+```
 
 Example Playbook
 ----------------
